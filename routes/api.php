@@ -17,3 +17,41 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Route::group(['mid'])
+//ver isso e o kernel que falta, e os imports de autenticador
+//ir tambem no.env e colocar o jwt key na ultima linha
+
+
+
+//criar outra contrller pra api
+Route::get('/listar', 'Api\CursoController@listar');
+
+
+//salvar:
+
+Route::post('/salvar','Api\CursoController@salvar');
+
+
+//buscar:
+Route::get('/buscar{id}','Api\CursoController@buscar');
+
+
+//atualizar:
+Route::put('/atualizar{id}','Api\CursoController@atualizar');
+
+
+//deletar
+Route::delete('/deletar{id}','Api\CursoController@deletar');
+
+
+Route::post('/cadastrar','Api\UsuarioController@cadastrar');
+
+Route::post('/login','TokenCOntroller@gerarToken');
+
+
+
+
+
+

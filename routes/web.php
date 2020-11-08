@@ -89,6 +89,11 @@ Route::group(['middleware'=>'auth'],function(){  //inicio da sessao de login e r
 //as mensagens de login, registro ta tudo em ingles, pra acessar vai em  resouuces,criar pasta pt-br
 //ir em config / app e mudar o locale pra pt_br(pasta criada)
 
+//As rotas de login e register é colocado direto na view, no navbar, nao precisa criar rota aqui
+
+//TUDO QUE ESTA NESSA CHAVE ACIMA É QUE NAO VAI TER ACESSO  SE NAO TIVER LOGADO, FACIL ASSIM
+
+
 
 
 Route::get('/admin/cursos', 'Admin\CursoController@index')
@@ -133,13 +138,19 @@ Route::put('/produtos/atualizar/{id}', 'ProdutoController@atualizar') //aqui vai
 ->name('admin.produtos.atualizar');
 
 
+}); //final da sessao de login e registro
+
+
+
+//AQUI ABAIXO O USUARIO SEM LOGIN VAI TER ACESSO:
+
+
 // -------------------ROTAS DE HOME:---------------------------
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 
 
-}); //final da sessao de login e registro
 
 Auth::routes(); //de login com os camando do jonas pra login laravel
 
